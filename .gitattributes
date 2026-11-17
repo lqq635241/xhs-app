@@ -1,0 +1,4 @@
+# 强制 GitHub Actions workflow 与 shell 脚本使用 LF 换行，避免 Windows CRLF 导致 CI 解析失败
+.github/workflows/*.yml text eol=lf
+.github/workflows/*.yaml text eol=lf
+*.sh text eol=lf

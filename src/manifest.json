@@ -1,0 +1,121 @@
+{
+    "name" : "小红书",
+    "appid" : "__UNI__XHSDEMO",
+    "description" : "小红书 uni-app 全端演示（Vue3 + Vite）",
+    "versionName" : "1.0.0",
+    "versionCode" : "100",
+    "transformPx" : false,
+    /* 5+App特有相关 —— App 端差异配置核心 */
+    "app-plus" : {
+        "usingComponents" : true,
+        "nvueStyleCompiler" : "uni-app",
+        "compilerVersion" : 3,
+        /* 启动图：改善 App 冷启动观感（README「包体积与首屏」差异点） */
+        "splashscreen" : {
+            "alwaysShowBeforeRender" : true,
+            "waiting" : true,
+            "autoclose" : true,
+            "delay" : 0
+        },
+        /* 模块配置：按需勾选，影响包体积 */
+        "modules" : {
+            "Push" : {},
+            "OAuth" : {},
+            "Share" : {},
+            "Payment" : {},
+            "Geolocation" : {}
+        },
+        /* 应用发布信息 */
+        "distribute" : {
+            /* android打包配置 */
+            "android" : {
+                "package" : "com.demo.xhs",
+                "permissions" : [
+                    "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
+                    "<uses-permission android:name=\"android.permission.VIBRATE\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_LOGS\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
+                    "<uses-feature android:name=\"android.hardware.camera.autofocus\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.CAMERA\"/>",
+                    "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\"/>",
+                    "<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
+                    "<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
+                    "<uses-feature android:name=\"android.hardware.camera\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
+                ],
+                /* Android 9+ 明文 HTTP：演示开启，正式建议关闭并全用 HTTPS */
+                "usesCleartextTraffic" : true
+            },
+            /* ios打包配置：权限描述文案（App Store 审核必需） */
+            "ios" : {
+                "idfa" : false,
+                "plist" : {
+                    "NSCameraUsageDescription" : "用于拍摄笔记图片",
+                    "NSPhotoLibraryUsageDescription" : "用于选择笔记图片",
+                    "NSPhotoLibraryAddUsageDescription" : "用于保存图片到相册",
+                    "NSLocationWhenInUseUsageDescription" : "用于获取附近内容",
+                    "NSMicrophoneUsageDescription" : "用于录制视频声音"
+                }
+            },
+            /* SDK配置：真实能力需在 DCloud 后台申请 appid/key 后填入 */
+            "sdkConfigs" : {
+                "oauth" : {
+                    "weixin" : { "appid" : "", "appsecret" : "", "UniversalLink" : "" },
+                    "apple" : { "teamid" : "", "keyid" : "", "privatekey" : "" }
+                },
+                "share" : {
+                    "weixin" : { "appid" : "", "appsecret" : "", "UniversalLink" : "" }
+                },
+                "payment" : {
+                    "wxpay" : { "appid" : "", "mch_id" : "", "apikey" : "" },
+                    "alipay" : { "appid" : "", "privatekey" : "", "publickey" : "" }
+                },
+                "push" : {
+                    "unipush" : { "version" : "2", "appid" : "", "appkey" : "", "appsecret" : "" }
+                },
+                "geolocation" : {
+                    "tencent" : { "key" : "" }
+                }
+            }
+        }
+    },
+    /* 快应用特有相关 */
+    "quickapp" : {},
+    /* 小程序特有相关 */
+    "mp-weixin" : {
+        "appid" : "touristappid",
+        "setting" : {
+            "urlCheck" : false,
+            "es6" : true,
+            "postcss" : true,
+            "minified" : true
+        },
+        "permission" : {
+            "scope.userLocation" : { "desc" : "你的位置信息将用于显示附近内容" }
+        },
+        "requiredPrivateInfos" : [ "getLocation" ],
+        "usingComponents" : true
+    },
+    "mp-alipay" : { "usingComponents" : true },
+    "mp-baidu" : { "usingComponents" : true },
+    "mp-toutiao" : { "usingComponents" : true },
+    /* H5 特有配置 */
+    "h5" : {
+        "title" : "小红书",
+        "router" : { "mode" : "hash", "base" : "/" },
+        "devServer" : { "port" : 5173 }
+    },
+    "uniStatistics" : {
+        "enable" : false
+    },
+    "vueVersion" : "3"
+}
