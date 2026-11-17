@@ -23,6 +23,25 @@ npm run build:app           # App 资源 -> dist/build/app（云打包/本地打
 
 > **环境**：Node ≥ 18（推荐 20+），npm ≥ 9。本项目实测 Node 22 / npm 10。
 
+### 自动化部署（GitHub Actions → GitHub Pages）
+
+代码已配置 CI/CD：**push 到 `main` 分支即自动构建 H5 并部署到 GitHub Pages**。
+
+- **仓库**：`https://github.com/lqq635241/xhs-app`
+- **在线地址**：`https://lqq635241.github.io/xhs-app/`
+- **工作流**：`.github/workflows/deploy.yml`
+- **触发方式**：push 到 `main` / `master`，或在 Actions 页面手动点击 "Run workflow"
+
+流程：检出代码 → 安装 Node 20 → `npm ci` → 动态计算 Pages base 路径 → 构建 H5 → 上传并部署 Pages。
+
+**base 路径自动适配**：工作流从 `GITHUB_REPOSITORY` 解析仓库名，自动判断：
+- 项目站点（如 `xhs-app`）→ base = `/xhs-app/`
+- 用户站点（如 `用户名.github.io`）→ base = `/`
+
+同时通过 `VITE_BASE` 环境变量注入 `vite.config.js`，并用脚本同步 `manifest.json` 的 `h5.router.base`，三处保持一致，避免部署后白屏。
+
+> 本地开发默认 base = `/`，不受影响。GitHub Pages 需在仓库 Settings → Pages → Build and deployment → Source 选择 **GitHub Actions**（首次部署时通常自动配置）。
+
 ---
 
 ## 二、已实现功能
