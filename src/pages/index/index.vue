@@ -4,6 +4,7 @@ import { onBackPress } from '@dcloudio/uni-app'
 import { useAppStore } from '@/store/index.js'
 import NoteCard from '@/components/NoteCard.vue'
 import Skeleton from '@/components/Skeleton.vue'
+import StatusBar from '@/components/StatusBar.vue'
 import { handleBackPress } from '@/utils/back.js'
 
 const store = useAppStore()
@@ -54,16 +55,19 @@ function onReachBottom() {
 
 <template>
 	<view class="page">
-		<!-- 顶部：关注/发现/附近 Tab + 搜索入口 -->
-		<view class="header">
-			<view class="tabs">
-				<view
-					v-for="t in tabs" :key="t.key" class="tab"
-					:class="{ active: activeTab === t.key }"
-					@click="switchTab(t.key)"
-				>{{ t.label }}</view>
+		<!-- 自定义导航：状态栏占位（App/小程序端）+ 关注/发现/附近 Tab + 搜索入口 -->
+		<view class="sticky-header">
+			<StatusBar />
+			<view class="header">
+				<view class="tabs">
+					<view
+						v-for="t in tabs" :key="t.key" class="tab"
+						:class="{ active: activeTab === t.key }"
+						@click="switchTab(t.key)"
+					>{{ t.label }}</view>
+				</view>
+				<view class="search-icon" @click="goSearch">🔍</view>
 			</view>
-			<view class="search-icon" @click="goSearch">🔍</view>
 		</view>
 
 		<!-- 首屏骨架屏（App 冷启动观感优化） -->
@@ -84,8 +88,9 @@ function onReachBottom() {
 
 <style scoped>
 .page { min-height: 100vh; background: #f7f7f7; }
+.sticky-header { position: sticky; top: 0; z-index: 10; }
 .header {
-	position: sticky; top: 0; z-index: 10; display: flex; align-items: center;
+	display: flex; align-items: center;
 	justify-content: center; height: 92rpx; background: #fff; border-bottom: 1rpx solid #f0f0f0;
 }
 .tabs { display: flex; align-items: center; gap: 48rpx; }
@@ -96,6 +101,10 @@ function onReachBottom() {
 	width: 36rpx; height: 6rpx; border-radius: 6rpx; background: #ff2442;
 }
 .search-icon { position: absolute; right: 28rpx; font-size: 36rpx; }
+/* #ifdef MP */
+/* 小程序自定义导航：右上角有胶囊按钮，搜索图标左移避让 */
+.search-icon { right: 200rpx; }
+/* #endif */
 .waterfall { display: flex; gap: 16rpx; padding: 20rpx 20rpx 0; align-items: flex-start; }
 .column { flex: 1; min-width: 0; }
 .list-end { text-align: center; color: #bbb; font-size: 24rpx; padding: 30rpx 0 40rpx; }
