@@ -130,6 +130,7 @@ function onInputFocus() { scrollToLatest() }
 .input-bar { padding-bottom: calc(16rpx + env(safe-area-inset-bottom)); }
 .messages { padding-bottom: calc(160rpx + env(safe-area-inset-bottom)); }
 /* #endif */
-.input { flex: 1; background: #f5f5f5; border-radius: 40rpx; padding: 32rpx 28rpx; font-size: 24rpx; }
-.send-btn { background: #ff2442; color: #fff; padding: 14rpx 32rpx; border-radius: 40rpx; font-size: 24rpx; }
+/* 必须给 uni-input 显式 height：H5 端靠 padding 撑高会导致内部原生 input 高度算成 0，点击无法聚焦 */
+.input { flex: 1; height: 80rpx; line-height: 80rpx; background: #f5f5f5; border-radius: 40rpx; padding: 0 28rpx; font-size: 28rpx; }
+.send-btn { background: #ff2442; color: #fff; padding: 18rpx 32rpx; border-radius: 40rpx; font-size: 26rpx; }
 </style>
