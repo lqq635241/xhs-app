@@ -1,108 +1,109 @@
 {
-	"pages": [
-		{
-			"path": "pages/index/index",
-			"style": {
-				"navigationStyle": "custom",
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": true,
-				"onReachBottomDistance": 80
-			}
-		},
-		{
-			"path": "pages/video/video",
-			"style": {
-				"navigationStyle": "custom",
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": true
-			}
-		},
-		{
-			"path": "pages/publish/publish",
-			"style": {
-				"navigationStyle": "custom",
-				"navigationBarTitleText": ""
-			}
-		},
-		{
-			"path": "pages/message/message",
-			"style": {
-				"navigationStyle": "custom",
-				"navigationBarTitleText": ""
-			}
-		},
-		{
-			"path": "pages/profile/profile",
-			"style": {
-				"navigationStyle": "custom",
-				"navigationBarTitleText": ""
-			}
-		},
-		{
-			"path": "pages/search/search",
-			"style": {
-				"navigationBarTitleText": "搜索"
-			}
-		},
-		{
-			"path": "pages/note-detail/note-detail",
-			"style": {
-				"navigationBarTitleText": "笔记详情"
-			}
-		},
-		{
-			"path": "pages/user/user",
-			"style": {
-				"navigationBarTitleText": "个人主页"
-			}
-		},
-		{
-			"path": "pages/chat/chat",
-			"style": {
-				"navigationBarTitleText": "聊天"
-			}
-		},
-		{
-			"path": "pages/fans/fans",
-			"style": {
-				"navigationBarTitleText": "粉丝与关注"
-			}
-		},
-		{
-			"path": "pages/edit-profile/edit-profile",
-			"style": {
-				"navigationBarTitleText": "编辑资料"
-			}
-		},
-		{
-			"path": "pages/ability/ability",
-			"style": {
-				"navigationStyle": "custom",
-				"navigationBarTitleText": "端能力演示中心"
-			}
-		}
-	],
-	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "小红书",
-		"navigationBarBackgroundColor": "#ffffff",
-		"backgroundColor": "#ffffff",
-		"backgroundTextStyle": "light",
-		"app-plus": {
-			"background": "#ffffff"
-		}
-	},
-	"tabBar": {
-		"color": "#999999",
-		"selectedColor": "#ff2442",
-		"backgroundColor": "#ffffff",
-		"borderStyle": "black",
-		"list": [
-			{ "pagePath": "pages/index/index", "text": "首页" },
-			{ "pagePath": "pages/video/video", "text": "视频" },
-			{ "pagePath": "pages/publish/publish", "text": "发布" },
-			{ "pagePath": "pages/message/message", "text": "消息" },
-			{ "pagePath": "pages/profile/profile", "text": "我" }
-		]
-	}
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": true,
+        "onReachBottomDistance": 80
+      }
+    },
+    {
+      "path": "pages/video/video",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/publish/publish",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/message/message",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/profile/profile",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/search/search",
+      "style": {
+        "navigationBarTitleText": "搜索"
+      }
+    },
+    {
+      "path": "pages/note-detail/note-detail",
+      "style": {
+        "navigationBarTitleText": "笔记详情"
+      }
+    },
+    {
+      "path": "pages/user/user",
+      "style": {
+        "navigationBarTitleText": "个人主页"
+      }
+    },
+    {
+      "path": "pages/chat/chat",
+      "style": {
+        "navigationBarTitleText": "聊天"
+      }
+    },
+    {
+      "path": "pages/fans/fans",
+      "style": {
+        "navigationBarTitleText": "粉丝与关注"
+      }
+    },
+    {
+      "path": "pages/edit-profile/edit-profile",
+      "style": {
+        "navigationBarTitleText": "编辑资料"
+      }
+    },
+    {
+      "path": "pages/ability/ability",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "端能力演示中心"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "小红书",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#ffffff",
+    "backgroundTextStyle": "light",
+    "app-plus": {
+      "background": "#ffffff"
+    }
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#ff2442",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "fontSize": "14px",
+    "list": [
+      { "pagePath": "pages/index/index", "text": "首页" },
+      { "pagePath": "pages/video/video", "text": "视频" },
+      { "pagePath": "pages/publish/publish", "text": "发布" },
+      { "pagePath": "pages/message/message", "text": "消息" },
+      { "pagePath": "pages/profile/profile", "text": "我" }
+    ]
+  }
 }

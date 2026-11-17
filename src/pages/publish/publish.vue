@@ -112,7 +112,21 @@ function doPublish() {
 .tag-title { font-size: 28rpx; font-weight: bold; margin-bottom: 16rpx; }
 .tag-list { display: flex; flex-wrap: wrap; gap: 16rpx; }
 .hot-tag { background: #f0f4ff; color: #4a6fa5; padding: 12rpx 22rpx; border-radius: 30rpx; font-size: 24rpx; }
-.publish-footer { position: fixed; bottom: 0; left: 0; right: 0; display: flex; gap: 20rpx; padding: 20rpx 28rpx; background: #fff; border-top: 1rpx solid #f0f0f0; }
+.publish-footer {
+	position: fixed; bottom: 0; left: 0; right: 0; z-index: 20;
+	display: flex; gap: 20rpx; padding: 20rpx 28rpx;
+	background: #fff; border-top: 1rpx solid #f0f0f0;
+}
+/* H5 端 tabBar 是覆盖在页面上的 fixed 层（高 50px），底部栏需上移避开；App/小程序端 tabBar 为原生组件，页面区域已排除，无需处理 */
+/* #ifdef H5 */
+.publish-footer { bottom: 50px; }
+.page { padding-bottom: 240rpx; }
+/* #endif */
+/* App 端：底部栏追加安全区，避让 iPhone home indicator */
+/* #ifdef APP-PLUS */
+.publish-footer { padding-bottom: calc(20rpx + env(safe-area-inset-bottom)); }
+.page { padding-bottom: calc(140rpx + env(safe-area-inset-bottom)); }
+/* #endif */
 .draft-btn { padding: 22rpx 40rpx; border: 1rpx solid #ddd; border-radius: 40rpx; font-size: 28rpx; color: #666; }
 .publish-btn { flex: 1; background: #ff2442; color: #fff; text-align: center; padding: 22rpx 0; border-radius: 40rpx; font-size: 30rpx; font-weight: bold; }
 .publish-btn.disabled { opacity: 0.6; }
