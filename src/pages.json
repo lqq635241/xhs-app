@@ -12,26 +12,30 @@
 		{
 			"path": "pages/video/video",
 			"style": {
-				"navigationBarTitleText": "视频",
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "",
 				"enablePullDownRefresh": true
 			}
 		},
 		{
 			"path": "pages/publish/publish",
 			"style": {
-				"navigationBarTitleText": "发布笔记"
+				"navigationStyle": "custom",
+				"navigationBarTitleText": ""
 			}
 		},
 		{
 			"path": "pages/message/message",
 			"style": {
-				"navigationBarTitleText": "消息"
+				"navigationStyle": "custom",
+				"navigationBarTitleText": ""
 			}
 		},
 		{
 			"path": "pages/profile/profile",
 			"style": {
-				"navigationBarTitleText": "我"
+				"navigationStyle": "custom",
+				"navigationBarTitleText": ""
 			}
 		},
 		{

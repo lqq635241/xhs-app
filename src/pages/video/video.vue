@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { useAppStore } from '@/store/index.js'
 import { formatCount } from '@/utils/index.js'
+import StatusBar from '@/components/StatusBar.vue'
 
 const store = useAppStore()
 const videos = computed(() => store.notes.filter(n => n.type === 'video'))
@@ -10,6 +11,7 @@ function openVideo(n) { uni.navigateTo({ url: `/pages/note-detail/note-detail?id
 
 <template>
 	<view class="page">
+		<StatusBar bgColor="#000" />
 		<view class="video-card" v-for="n in videos" :key="n.id" @click="openVideo(n)">
 			<image class="cover" :src="n.images[0]" mode="aspectFill"></image>
 			<view class="play-btn">▶</view>

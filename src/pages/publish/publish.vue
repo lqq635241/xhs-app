@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { useAppStore } from '@/store/index.js'
 import { uid, toast } from '@/utils/index.js'
 import { chooseImage as pickImages, chooseVideo as pickVideo } from '@/utils/media.js'
+import StatusBar from '@/components/StatusBar.vue'
 
 const store = useAppStore()
 const title = ref('')
@@ -49,6 +50,7 @@ function doPublish() {
 
 <template>
 	<view class="page">
+		<StatusBar />
 		<view class="form">
 			<view class="media-picker">
 				<view v-for="(img, i) in images" :key="i" class="img-item">

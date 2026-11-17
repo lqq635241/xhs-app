@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue'
 import { useAppStore } from '@/store/index.js'
 import { formatTime } from '@/utils/index.js'
+import StatusBar from '@/components/StatusBar.vue'
 
 const store = useAppStore()
 const activeTab = ref('chat')
@@ -28,13 +29,16 @@ function openUser(userId) { uni.navigateTo({ url: `/pages/user/user?id=${userId}
 
 <template>
 	<view class="page">
-		<view class="header">
-			<view
-				v-for="t in tabs" :key="t.key" class="tab"
-				:class="{ active: activeTab === t.key }" @click="activeTab = t.key"
-			>
-				{{ t.label }}
-				<text v-if="t.key === 'chat' && store.unreadMessageCount" class="badge">{{ store.unreadMessageCount }}</text>
+		<view class="sticky-header">
+			<StatusBar />
+			<view class="header">
+				<view
+					v-for="t in tabs" :key="t.key" class="tab"
+					:class="{ active: activeTab === t.key }" @click="activeTab = t.key"
+				>
+					{{ t.label }}
+					<text v-if="t.key === 'chat' && store.unreadMessageCount" class="badge">{{ store.unreadMessageCount }}</text>
+				</view>
 			</view>
 		</view>
 
@@ -77,6 +81,7 @@ function openUser(userId) { uni.navigateTo({ url: `/pages/user/user?id=${userId}
 
 <style scoped>
 .page { min-height: 100vh; background: #fff; }
+.sticky-header { position: sticky; top: 0; z-index: 10; background: #fff; }
 .header { display: flex; justify-content: center; gap: 80rpx; height: 92rpx; align-items: center; border-bottom: 1rpx solid #f0f0f0; }
 .tab { font-size: 30rpx; color: #999; position: relative; padding: 16rpx 0; }
 .tab.active { color: #333; font-weight: bold; font-size: 34rpx; }

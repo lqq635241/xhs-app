@@ -3,6 +3,7 @@ import { computed, ref } from 'vue'
 import { useAppStore } from '@/store/index.js'
 import NoteCard from '@/components/NoteCard.vue'
 import { formatCount } from '@/utils/index.js'
+import StatusBar from '@/components/StatusBar.vue'
 
 const store = useAppStore()
 const tabs = [
@@ -40,6 +41,7 @@ function showReport() {
 
 <template>
 	<view class="page">
+		<StatusBar bgColor="#ffe8ec" />
 		<!-- 背景 + 资料 -->
 		<view class="profile-header">
 			<view class="bg-decor"></view>
