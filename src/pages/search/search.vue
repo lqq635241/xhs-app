@@ -32,6 +32,7 @@ function goBack() { uni.navigateBack() }
 
 <template>
 	<view class="page">
+		<StatusBar />
 		<!-- 搜索栏 -->
 		<view class="search-bar">
 			<text class="back" @click="goBack">‹</text>
